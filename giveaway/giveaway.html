@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participare Giveaway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8b500, #ff6f61);
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        .btn {
+            text-decoration: none;
+            background: #ff6f61;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #f05454;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Participă la Giveaway!</h1>
+        <p>Introdu codul de participare pentru a continua.</p>
+
+        <!-- Formular pentru cod -->
+        <div id="code-form">
+            <input type="password" id="access-code" placeholder="Introdu codul" required>
+            <button class="btn" onclick="validateCode()">Verifică Codul</button>
+        </div>
+
+        <!-- Secțiune după validare -->
+        <div id="success-message" class="hidden">
+            <p>Codul este corect! Acum poți accesa giveaway-ul:</p>
+            <a href="https://gleam.io/9PqkE/jerry" target="_blank" class="btn">Participă acum</a>
+        </div>
+    </div>
+
+    <script>
+        // Codul setat de tine (poate fi schimbat de fiecare dată)
+        const secretCode = "Jerry";
+
+        function validateCode() {
+            const enteredCode = document.getElementById("access-code").value;
+            const codeForm = document.getElementById("code-form");
+            const successMessage = document.getElementById("success-message");
+
+            if (enteredCode === secretCode) {
+                // Afișează mesajul de succes și ascunde formularul
+                codeForm.classList.add("hidden");
+                successMessage.classList.remove("hidden");
+            } else {
+                // Afișează un mesaj de eroare
+                alert("Codul introdus este greșit. Încearcă din nou.");
+            }
+        }
+    </script>
+</body>
+</html>
